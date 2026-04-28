@@ -3,13 +3,13 @@
 /**
  *------
  * BGA framework: © Gregory Isabelli <gisabelli@boardgamearena.com> & Emmanuel Colin <ecolin@boardgamearena.com>
- * Altered implementation : © <Your name here> <Your email address here>
+ * taumalteredtest implementation : © <Your name here> <Your email address here>
  *
  * This code has been produced on the BGA studio platform for use on http://boardgamearena.com.
  * See http://en.boardgamearena.com/#!doc/Studio for more information.
  * -----
  *
- * altered.game.php
+ * taumalteredtest.game.php
  *
  * This is the main file for your game logic.
  *
@@ -45,7 +45,7 @@ use ALT\Core\Stats;
 use ALT\Core\Engine;
 use ALT\Core\Notifications;
 
-class altered extends Table
+class taumalteredtest extends Table
 {
   use ALT\DebugTrait;
   use ALT\States\SetupTrait;
@@ -78,7 +78,7 @@ class altered extends Table
 
   protected function getGameName()
   {
-    return 'altered';
+    return 'taumalteredtest';
   }
 
   public function getAllDatas(): array

@@ -11,7 +11,7 @@ use ALT\Core\Engine;
 use ALT\Managers\Players;
 use ALT\Models\Card;
 
-/* Class to manage all the cards for Altered */
+/* Class to manage all the cards for taumalteredtest */
 
 function slugify($text)
 {

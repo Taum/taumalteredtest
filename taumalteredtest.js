@@ -1,15 +1,15 @@
 /**
  *------
  * BGA framework: © Gregory Isabelli <gisabelli@boardgamearena.com> & Emmanuel Colin <ecolin@boardgamearena.com>
- * Altered implementation : © <Your name here> <Your email address here>
+ * taumalteredtest implementation : © <Your name here> <Your email address here>
  *
  * This code has been produced on the BGA studio platform for use on http://boardgamearena.com.
  * See http://en.boardgamearena.com/#!doc/Studio for more information.
  * -----
  *
- * altered.js
+ * taumalteredtest.js
  *
- * Altered user interface script
+ * taumalteredtest user interface script
  *
  * In this file, you are describing the logic of your user interface, in Javascript language.
  *
@@ -54,7 +54,7 @@ define([
     }
   }
 
-  return declare('bgagame.altered', [customgame.game, altered.players, altered.cards, altered.meeples], {
+  return declare('bgagame.taumalteredtest', [customgame.game, taumalteredtest.players, taumalteredtest.cards, taumalteredtest.meeples], {
     constructor: function () {
       this._inactiveStates = ['selectPrecoDeck', 'firstDayManaSelection', 'newDayManaSelection', 'gameEnd'];
       this._notifications = [
@@ -330,7 +330,7 @@ define([
       // Create a new div for "subtitle"
       dojo.place("<div id='pagesubtitle'></div>", 'maintitlebar_content');
       // Create a new div for overlays
-      $('left-side-wrapper').insertAdjacentHTML('beforeend', '<div id="altered-overlay"></div>');
+      $('left-side-wrapper').insertAdjacentHTML('beforeend', '<div id="taumalteredtest-overlay"></div>');
       // Create a new div for storm overlays
       $('left-side-wrapper').insertAdjacentHTML(
         'beforeend',
@@ -343,7 +343,7 @@ define([
       $('day-indicator-wheel-inner').dataset.phase = gamedatas.phase;
 
       // Experimental
-      $('altered-main-container').insertAdjacentElement('beforeend', $('page-title'));
+      $('taumalteredtest-main-container').insertAdjacentElement('beforeend', $('page-title'));
       $('left-side').insertAdjacentHTML(
         'beforeend',
         `<div id="bga-help_buttons">
@@ -387,26 +387,26 @@ define([
     },
 
     openOverlay() {
-      $('altered-overlay').classList.add('active');
-      $('altered-board-overlay').classList.add('active');
+      $('taumalteredtest-overlay').classList.add('active');
+      $('taumalteredtest-board-overlay').classList.add('active');
       this.centerOverlay();
     },
     closeOverlay() {
       this.closeCurrentTooltip(false);
-      $('altered-overlay').classList.remove('active');
-      $('altered-board-overlay').classList.remove('active');
+      $('taumalteredtest-overlay').classList.remove('active');
+      $('taumalteredtest-board-overlay').classList.remove('active');
     },
     centerOverlay() {
       let h = $('page-title').getBoundingClientRect()['height'];
-      $('altered-board-overlay').style.paddingTop = h + 'px';
+      $('taumalteredtest-board-overlay').style.paddingTop = h + 'px';
     },
 
     addToggleOverlayButton() {
-      let getText = () => ($('altered-overlay').classList.contains('active') ? _('Close overlay') : _('Open overlay'));
+      let getText = () => ($('taumalteredtest-overlay').classList.contains('active') ? _('Close overlay') : _('Open overlay'));
 
       this.addSecondaryActionButton('btnToggleOverlay', getText(), () => {
-        $('altered-overlay').classList.toggle('active');
-        $('altered-board-overlay').classList.toggle('active');
+        $('taumalteredtest-overlay').classList.toggle('active');
+        $('taumalteredtest-board-overlay').classList.toggle('active');
         $('btnToggleOverlay').innerHTML = getText();
       });
     },
@@ -414,7 +414,7 @@ define([
     closeOverlayIfOpened() {
       this.closeOverlay();
       this.onChangeHandLocationSetting();
-      $('altered-overlay-content').innerHTML = '';
+      $('taumalteredtest-overlay-content').innerHTML = '';
     },
 
     setupSortableHand() {
@@ -456,7 +456,7 @@ define([
 
       // Parameters to pass to OAuth 2.0 endpoint.
       let params = {
-        project_id: 'bga-altered',
+        project_id: 'bga-taumalteredtest',
         client_id: '516885558184-6amd2b1sma940uh2o7p3fbqocoh3qfkd.apps.googleusercontent.com',
         redirect_uri: 'https://localhost/index.php',
         response_type: 'code',
@@ -495,7 +495,7 @@ define([
       form.appendChild(btn);
 
       // Add form to page and submit it to open the OAuth 2.0 endpoint.
-      // $('altered-board').appendChild(form);
+      // $('taumalteredtest-board').appendChild(form);
       $('anytimeActions').appendChild(form);
 
       //      form.submit();
@@ -564,7 +564,7 @@ define([
     onLoadingComplete() {
       this.updateLayout();
       document.fonts.ready.then(() => {
-        document.querySelectorAll('.altered-card').forEach((oCard) => this.autofitCardFrame(oCard, true));
+        document.querySelectorAll('.taumalteredtest-card').forEach((oCard) => this.autofitCardFrame(oCard, true));
         this._loadingComplete = true;
       });
       this.inherited(arguments);
@@ -637,8 +637,8 @@ define([
 
       // Destroy other cards
       [
-        ...$(`mana-cards-${this.player_id}`).querySelectorAll('.altered-card'),
-        ...$(`hand-${this.player_id}`).querySelectorAll('.altered-card'),
+        ...$(`mana-cards-${this.player_id}`).querySelectorAll('.taumalteredtest-card'),
+        ...$(`hand-${this.player_id}`).querySelectorAll('.taumalteredtest-card'),
       ].forEach((oCard) => {
         if (!cardIds.includes(parseInt(oCard.getAttribute('data-id')))) {
           this.destroy(oCard);
@@ -663,7 +663,7 @@ define([
           },
         },
         channelorig: '/table/t545303',
-        gamenameorig: 'altered',
+        gamenameorig: 'taumalteredtest',
         time: 1703631299,
         move_id: 15,
         bIsTableMsg: true,
@@ -946,8 +946,8 @@ define([
 
       // Open deck container
       if (!$('overlay-deck-container')) {
-        $('altered-overlay-content').innerHTML = '';
-        $('altered-overlay-content').insertAdjacentHTML(
+        $('taumalteredtest-overlay-content').innerHTML = '';
+        $('taumalteredtest-overlay-content').insertAdjacentHTML(
           'beforeend',
           `
           <h2>${_('Choose your faction')}</h2>
@@ -969,7 +969,7 @@ define([
       this.addToggleOverlayButton();
 
       // Already made a selection => allow to cancel it
-      let previousCard = $('overlay-deck-container').querySelector('.altered-card.keep');
+      let previousCard = $('overlay-deck-container').querySelector('.taumalteredtest-card.keep');
       if (previousCard) previousCard.classList.remove('keep');
       let previousBtn = $('customActions').querySelector('.bgabutton.keep');
       if (previousBtn) previousBtn.classList.remove('keep');
@@ -987,7 +987,7 @@ define([
         if (!$('card-fake-API')) {
           $('overlay-deck-container').insertAdjacentHTML('beforeend', this.tplFakeCard({ id: 'fake-API' }));
           $('card-fake-API')
-            .querySelector('.altered-card-wrapper')
+            .querySelector('.taumalteredtest-card-wrapper')
             .insertAdjacentHTML(
               'beforeend',
               `<div style='width:100%; height:100%; display:flex; justify-content:center; align-items:center;'>
@@ -1008,7 +1008,7 @@ define([
       if (args.demoDeck == false && canUseRandom && !$('card-fake-random')) {
         $('overlay-deck-container').insertAdjacentHTML('beforeend', this.tplFakeCard({ id: 'fake-random' }));
         $('card-fake-random')
-          .querySelector('.altered-card-wrapper')
+          .querySelector('.taumalteredtest-card-wrapper')
           .insertAdjacentHTML(
             'beforeend',
             `<div style='width:100%; height:100%; display:flex; justify-content:center; align-items:center;'>
@@ -1023,7 +1023,7 @@ define([
 
     onLeavingStateSelectPrecoDeck() {
       this.closeOverlay();
-      $('altered-overlay-content').innerHTML = '';
+      $('taumalteredtest-overlay-content').innerHTML = '';
     },
 
     notif_updateInitialPrecoDeckSelection(n) {
@@ -1046,8 +1046,8 @@ define([
         this.clientState('chooseFetchedDeck', _('Choose one of your deck'), response.data);
       });
 
-      $('altered-overlay-content').innerHTML = '';
-      $('altered-overlay-content').insertAdjacentHTML(
+      $('taumalteredtest-overlay-content').innerHTML = '';
+      $('taumalteredtest-overlay-content').insertAdjacentHTML(
         'beforeend',
         `
         <h2>${_('Fetching your decks from Equinox')}</h2>
@@ -1090,8 +1090,8 @@ define([
 
       let isUpdateOnly = args.update || false;
       if (!isUpdateOnly) {
-        $('altered-overlay-content').innerHTML = '';
-        $('altered-overlay-content').insertAdjacentHTML(
+        $('taumalteredtest-overlay-content').innerHTML = '';
+        $('taumalteredtest-overlay-content').insertAdjacentHTML(
           'beforeend',
           `
         <h2>${_('Choose your deck')}</h2>
@@ -1237,8 +1237,8 @@ define([
 
     showAPIDeckDetails(args) {
       let deck = args._private.API;
-      $('altered-overlay-content').innerHTML = '';
-      $('altered-overlay-content').insertAdjacentHTML(
+      $('taumalteredtest-overlay-content').innerHTML = '';
+      $('taumalteredtest-overlay-content').insertAdjacentHTML(
         'beforeend',
         `
         <h2>${_('Your deck:')} ${deck.deckName}</h2>
@@ -1278,7 +1278,7 @@ define([
 
     handleAPIError(l) {
       this._awaitingAPIReturn = false;
-      let fetchingElt = $('altered-overlay-content').querySelector('.fetching');
+      let fetchingElt = $('taumalteredtest-overlay-content').querySelector('.fetching');
       if (fetchingElt) fetchingElt.classList.remove('fetching');
       $('api-error').innerHTML = _(l);
 
@@ -1299,8 +1299,8 @@ define([
     notif_vsScreen(n) {
       debug('Notif: VS screen', n);
       this.closeOverlayIfOpened();
-      $('altered-overlay-content').innerHTML = '';
-      // $('altered-overlay-content').insertAdjacentHTML(
+      $('taumalteredtest-overlay-content').innerHTML = '';
+      // $('taumalteredtest-overlay-content').insertAdjacentHTML(
       //   'beforeend',
       //   `<div id='vs-left'>
       //       MUNA
@@ -1340,8 +1340,8 @@ define([
 
       let cardIds = null;
       if (!$('overlay-hand-container')) {
-        $('altered-overlay-content').innerHTML = '';
-        $('altered-overlay-content').insertAdjacentHTML(
+        $('taumalteredtest-overlay-content').innerHTML = '';
+        $('taumalteredtest-overlay-content').insertAdjacentHTML(
           'beforeend',
           `
           <h2>${_('Choose your starting mana cards')}</h2>
@@ -1376,7 +1376,7 @@ define([
         this.addSecondaryActionButton('actCancelFirstDayManaSelection', _('Cancel'), () =>
           this.takeAction('actCancelFirstDayManaSelection', {}, false)
         );
-        $('altered-overlay-content').insertAdjacentHTML(
+        $('taumalteredtest-overlay-content').insertAdjacentHTML(
           'beforeend',
           `<a href="#" class="action-button bgabutton bgabutton_gray" id="btnCancelManaSelection">${_('Cancel')}</a>`
         );
@@ -1391,7 +1391,7 @@ define([
 
         // Confirm button
         if (!$('btnConfirmManaSelection')) {
-          $('altered-overlay-content').insertAdjacentHTML(
+          $('taumalteredtest-overlay-content').insertAdjacentHTML(
             'beforeend',
             `<a href="#" class="action-button bgabutton bgabutton_blue disabled" id="btnConfirmManaSelection">${_('Confirm')}</a>`
           );
@@ -1732,7 +1732,7 @@ define([
           // ALREADY SELECTED CARD
           if (cardId == args.cardId) {
             this.wait(250).then(() => {
-              this.onClick('altered-board-me', () => {
+              this.onClick('taumalteredtest-board-me', () => {
                 this.unselectIfNeeded();
                 this.clearClientState();
               });
@@ -2282,7 +2282,7 @@ define([
       let noText = NO_TEXT_ICONS.includes(name);
       let text = n == null ? '' : `<span>${n}</span>`;
       return `${noText ? text : ''}<div class="icon-container icon-container-${type}">
-            <div class="altered-icon icon-${type}">${noText ? '' : text}</div>
+            <div class="taumalteredtest-icon icon-${type}">${noText ? '' : text}</div>
           </div>`;
     },
 
@@ -2394,14 +2394,14 @@ define([
             // let card = this.getCardInfos(args.card_id);
             // let uid = this.registerCustomTooltip(this.tplCard(card, true));
             // args.card_name = `<span class="ark-log-card-name" id="${uid}">${_(args.card_name)}</span>`;
-            args.card_name = `<span class="altered-log-card-name">${_(args.card_name)}</span>`;
+            args.card_name = `<span class="taumalteredtest-log-card-name">${_(args.card_name)}</span>`;
           }
 
           if (args.source !== undefined && args.sourceId !== undefined) {
             // let card = this.getCardInfos(args.card_id);
             // let uid = this.registerCustomTooltip(this.tplCard(card, true));
             // args.source = `<span class="ark-log-card-name" id="${uid}">${_(args.source)}</span>`;
-            args.source = `<span class="altered-log-card-name">${_(args.source)}</span>`;
+            args.source = `<span class="taumalteredtest-log-card-name">${_(args.source)}</span>`;
           }
 
           if (args.effect_desc !== undefined) {
@@ -2453,15 +2453,15 @@ define([
       this.setupHelperModal();
 
       this._settingsModal = new customgame.modal('showSettings', {
-        class: 'altered_popin',
+        class: 'taumalteredtest_popin',
         closeIcon: 'fa-times',
         title: _('Settings'),
         closeAction: 'hide',
         scale: 0.9,
         breakpoint: 550,
         verticalAlign: 'flex-start',
-        contentsTpl: `<div id='altered-settings'>
-             <div id='altered-settings-header'></div>
+        contentsTpl: `<div id='taumalteredtest-settings'>
+             <div id='taumalteredtest-settings-header'></div>
              <div id="settings-controls-container"></div>
            </div>`,
       });
@@ -2510,9 +2510,9 @@ define([
     onChangeCardScaleSetting(val) {
       // let scale = val / 100;
       // [...document.querySelectorAll('.player-board-hand')].forEach((elt) => {
-      //   elt.style.setProperty('--alteredZooCardScale', scale);
+      //   elt.style.setProperty('--taumalteredtestZooCardScale', scale);
       // });
-      // $('floating-hand-wrapper').style.setProperty('--alteredZooCardScale', scale);
+      // $('floating-hand-wrapper').style.setProperty('--taumalteredtestZooCardScale', scale);
     },
 
     onChangeBoardHeightSetting(val) {
@@ -2524,7 +2524,7 @@ define([
     },
 
     onChangeDisplayFullArtSetting(val) {
-      document.querySelectorAll('.altered-card').forEach((oCard) => {
+      document.querySelectorAll('.taumalteredtest-card').forEach((oCard) => {
         if (!oCard.classList.contains('card-back')) {
           this.destroy(oCard);
         }
@@ -2537,7 +2537,7 @@ define([
       const ROOT = document.documentElement;
 
       const IS_FOCUS_MODE = document.body.classList.contains('focus-board');
-      const WIDTH = $('altered-main-container').getBoundingClientRect()['width'];
+      const WIDTH = $('taumalteredtest-main-container').getBoundingClientRect()['width'];
       let HEIGHT =
         (IS_FOCUS_MODE
           ? document.body.clientHeight
@@ -2588,11 +2588,11 @@ define([
 
     setupHelperModal() {
       this._helperModal = new customgame.modal('helperModal', {
-        class: 'altered_popin',
+        class: 'taumalteredtest_popin',
         closeIcon: 'fa-times',
         closeAction: 'hide',
         verticalAlign: 'flex-start',
-        contentsTpl: `<div id='altered-helpers'>
+        contentsTpl: `<div id='taumalteredtest-helpers'>
           <div id='helper-phases'>
             <h2>${_('Phases of the day')}</h2>
 

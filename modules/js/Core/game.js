@@ -1278,7 +1278,7 @@ define([
           const box = document.createElement('div');
           popper.appendChild(box);
 
-          popper.className = 'altered-tooltip';
+          popper.className = 'taumalteredtest-tooltip';
           box.insertAdjacentHTML('beforeend', instance.props.content);
 
           function onUpdate(prevProps, nextProps) {

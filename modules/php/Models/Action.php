@@ -257,7 +257,7 @@ class Action
     if ($duringActionListener) {
       $this->checkListeners($this->getClassName(), $player, $args, $overrideMethod);
     }
-    // removed, not sure it's consistent in Altered
+    // removed, not sure it's consistent in taumalteredtest
     // $this->checkListeners('ImmediatelyAfter' . $this->getClassName(), $player, $args);
     // $this->checkListeners('After' . $this->getClassName(), $player, $args);
   }

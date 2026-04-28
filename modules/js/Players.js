@@ -1,7 +1,7 @@
 define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
   const PLAYER_COUNTERS = ['mana', 'totalMana', 'handCount', 'deckCount'];
 
-  return declare('altered.players', null, {
+  return declare('taumalteredtest.players', null, {
     getPlayers() {
       return Object.values(this.gamedatas.players);
     },
@@ -30,7 +30,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
 
       // Add player board and player panel
       this.orderedPlayers.forEach((player, i) => {
-        let container = i == 0 ? 'altered-board-me' : 'altered-board-opponent';
+        let container = i == 0 ? 'taumalteredtest-board-me' : 'taumalteredtest-board-opponent';
         this.place('tplPlayerBoard', player, container);
         // Tooltips
         ['stormLeft', 'stormRight'].forEach((expe) => {
@@ -126,7 +126,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
 
     tplPlayerBoard(player) {
       let pId = player.id;
-      return `<div class='altered-player-board' id='player-board-${pId}' data-faction='${player.faction}'>
+      return `<div class='taumalteredtest-player-board' id='player-board-${pId}' data-faction='${player.faction}'>
           <div class='player-board-discard' id='board-discard-${player.id}'></div>
           <div class='player-board-deck' id='board-deck-${player.id}'>
             <div class='deck-counter-holder'  id='reveal-${player.id}'>
@@ -195,7 +195,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
             </div>
           </div>
           <div class='player-board-hero' id='board-hero-${pId}'>
-            <div class="altered-first-player-holder" id="firstPlayer-${player.id}"></div>
+            <div class="taumalteredtest-first-player-holder" id="firstPlayer-${player.id}"></div>
           </div>
           <div class='player-board-storm storm-right' id='board-stormRight-${pId}'>
             <div class="total-biomes">
@@ -368,7 +368,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     onUpdateHandCountCounter(pId, v) {
       if (pId == this.player_id) return;
       let container = $(`hand-${pId}`);
-      let cards = [...container.querySelectorAll('.altered-card')];
+      let cards = [...container.querySelectorAll('.taumalteredtest-card')];
       for (let i = cards.length; i < v; i++) {
         this.addFakeCard(container);
       }
@@ -426,7 +426,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
         });
       });
 
-      [...$('storm-container').querySelectorAll('.altered-meeple')].forEach((meeple) => {
+      [...$('storm-container').querySelectorAll('.taumalteredtest-meeple')].forEach((meeple) => {
         let pId = meeple.dataset.side == 'opponent' ? this.topPId : this.bottomPId;
         let type = meeple.dataset.type;
         let willProgress = willMove[pId][type];
@@ -439,7 +439,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     updateUselessStormCards() {
       let minPos = 8,
         maxPos = 0;
-      [...$('storm-container').querySelectorAll('.altered-meeple')].forEach((meeple) => {
+      [...$('storm-container').querySelectorAll('.taumalteredtest-meeple')].forEach((meeple) => {
         let type = meeple.dataset.type;
         let pos = +meeple.parentNode.dataset.x;
         if (type == 'hero') minPos = Math.min(minPos, pos);

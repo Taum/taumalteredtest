@@ -8,7 +8,7 @@ use ALT\Core\Notifications;
 use ALT\Helpers\Log;
 use ALT\Managers\Players;
 
-/* Class to manage all the actions for Altered */
+/* Class to manage all the actions for taumalteredtest */
 
 class Actions
 {
@@ -132,7 +132,7 @@ class Actions
   {
     $player = Players::getActive();
     if (!self::isDoable($actionId, $ctx, $player)) {
-      // removed for Altered, as an undoable node becomes optional
+      // removed for taumalteredtest, as an undoable node becomes optional
       // if (!$ctx->isOptional($player)) {
       //   if (self::isDoable($actionId, $ctx, $player, true)) {
       //     Game::get()->gamestate->jumpToState(ST_IMPOSSIBLE_MANDATORY_ACTION);

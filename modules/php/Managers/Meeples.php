@@ -9,7 +9,7 @@ use ALT\Helpers\UserException;
 use ALT\Helpers\Collection;
 use ALT\Models\Meeple;
 
-/* Class to manage all the meeples for altered */
+/* Class to manage all the meeples for taumalteredtest */
 
 class Meeples extends \ALT\Helpers\CachedPieces
 {

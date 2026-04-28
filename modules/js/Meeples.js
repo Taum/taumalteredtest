@@ -3,7 +3,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
     return !!(elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length);
   }
 
-  return declare('altered.meeples', null, {
+  return declare('taumalteredtest.meeples', null, {
     setupMeeples() {
       // This function is refreshUI compatible
       let meepleIds = this.gamedatas.meeples.map((meeple) => {
@@ -22,7 +22,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
 
         return meeple.id;
       });
-      document.querySelectorAll('.altered-meeple[id^="meeple-"]').forEach((oMeeple) => {
+      document.querySelectorAll('.taumalteredtest-meeple[id^="meeple-"]').forEach((oMeeple) => {
         if (!meepleIds.includes(parseInt(oMeeple.getAttribute('data-id'))) && oMeeple.getAttribute('data-type') != 'cylinder') {
           this.destroy(oMeeple);
         }
@@ -81,7 +81,7 @@ define(['dojo', 'dojo/_base/declare'], (dojo, declare) => {
       let faction = PERSONAL.includes(type)
         ? ` data-faction="${this.getPlayerFaction(meeple.pId)}" data-side="${this.bottomPId == meeple.pId ? 'me' : 'opponent'}" `
         : '';
-      return `<div class="altered-meeple altered-icon icon-${type}" id="meeple-${meeple.id}" data-id="${meeple.id}" data-type="${type}" data-state="${meeple.state}" ${faction}></div>`;
+      return `<div class="taumalteredtest-meeple taumalteredtest-icon icon-${type}" id="meeple-${meeple.id}" data-id="${meeple.id}" data-type="${type}" data-state="${meeple.state}" ${faction}></div>`;
     },
 
     getPlayerColor(pId) {

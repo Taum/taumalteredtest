@@ -1,6 +1,6 @@
 <?php
 
-$directory = 'C:\_Vincent\Perso\bga\Z Assets Altered\04 - Duster\Duster2';
+$directory = 'C:\_Vincent\Perso\bga\Z Assets taumalteredtest\04 - Duster\Duster2';
 /*
 foreach (glob($directory."*.jpg") as $filename) {
     $file = realpath($filename);
@@ -12,7 +12,7 @@ foreach (glob($directory."*.jpg") as $filename) {
     rename($file, $directory.$newfileName);
 }*/
 
-if ($handle = opendir('C:\_Vincent\Perso\bga\Z Assets Altered\04 - Duster\Duster2')) {
+if ($handle = opendir('C:\_Vincent\Perso\bga\Z Assets taumalteredtest\04 - Duster\Duster2')) {
     while (false !== ($fileName = readdir($handle))) {
       if($fileName != '.' && $fileName != '..') {
 		  echo $fileName;
@@ -21,7 +21,7 @@ if ($handle = opendir('C:\_Vincent\Perso\bga\Z Assets Altered\04 - Duster\Duster
 	unset($newFiles[7]);
 	$newfileName = implode('_', $newFiles);
         // $newName = str_replace("SKU#","",$fileName);
-         rename('C:\_Vincent\Perso\bga\Z Assets Altered\04 - Duster\Duster2\\'.$fileName, 'C:\_Vincent\Perso\bga\Z Assets Altered\04 - Duster\Duster2\\'.$newfileName.'.jpg');
+         rename('C:\_Vincent\Perso\bga\Z Assets taumalteredtest\04 - Duster\Duster2\\'.$fileName, 'C:\_Vincent\Perso\bga\Z Assets taumalteredtest\04 - Duster\Duster2\\'.$newfileName.'.jpg');
       }
     }
     closedir($handle);

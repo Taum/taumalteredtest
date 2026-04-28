@@ -12,7 +12,7 @@
 
 $gameinfos = [
   // Name of the game in English (will serve as the basis for translation)
-  'game_name' => 'Altered',
+  'game_name' => 'taumalteredtest',
 
   // Game designer (or game designers, separated by commas)
   'designer' => 'Equinox team',
@@ -27,7 +27,7 @@ $gameinfos = [
   'publisher' => 'Equinox',
 
   // Url of game publisher website
-  'publisher_website' => 'https://www.altered.gg',
+  'publisher_website' => 'https://www.taumalteredtest.gg',
 
   // Board Game Geek ID of the publisher
   'publisher_bgg_id' => 1234,
@@ -128,8 +128,8 @@ $gameinfos = [
   // Each paragraph must be wrapped with totranslate() for translation and should not contain html (plain text without formatting).
   // A good length for this text is between 100 and 150 words (about 6 to 9 lines on a standard display)
   'presentation' => [
-    totranslate("Altered is an innovative TCG which offers a new, refreshing approach to both competitive and casual players. Set in a universe of rich lore and visual design (influenced by Miyazaki's work and Dixit-like illustrations), this game is about exploring a new, reshaped Earth after a mysterious event, the Confluence, profoundly altered it."),
-    totranslate("Shape your own adventure, choose a faction and lead your expeditions through an ever-changing world. Be the first to discover what the universe of Altered has in store for you!"),
+    totranslate("taumalteredtest is an innovative TCG which offers a new, refreshing approach to both competitive and casual players. Set in a universe of rich lore and visual design (influenced by Miyazaki's work and Dixit-like illustrations), this game is about exploring a new, reshaped Earth after a mysterious event, the Confluence, profoundly taumalteredtest it."),
+    totranslate("Shape your own adventure, choose a faction and lead your expeditions through an ever-changing world. Be the first to discover what the universe of taumalteredtest has in store for you!"),
     totranslate("What really lies at the heart of this revolution is a ton of expertly tailored details — a new rarity system, deep evolving lore, innovative game mechanisms and design — and a phygital experience that comes along with its myriad of life-quality improvements, both for the players, tournaments organizers and store owners alike."),
     totranslate("Born and led from the mind of talented game designer Régis Bonnessée (founder of the Libellud studio, which published Dixit, Mysterium, Dice Forge, and Seasons), this project is brought to you by the French studio Equinox, based in Paris, in partnership with and exclusively distributed by Asmodee.")
 

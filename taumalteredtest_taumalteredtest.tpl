@@ -1,9 +1,9 @@
 {OVERALL_GAME_HEADER}
 
-<div id="altered-main-container">
-  <div id="altered-board-resizable">
-    <div id="altered-board">
-      <div id="altered-board-opponent"></div>
+<div id="taumalteredtest-main-container">
+  <div id="taumalteredtest-board-resizable">
+    <div id="taumalteredtest-board">
+      <div id="taumalteredtest-board-opponent"></div>
       <div id="middle-line-wrapper">
         <div id="day-indicator">
           <div id="day-indicator-wheel"><div id="day-indicator-wheel-inner"></div></div>
@@ -29,12 +29,12 @@
         </div>
 
       </div>
-      <div id="altered-board-me"></div>
+      <div id="taumalteredtest-board-me"></div>
     </div>
   </div>
 
-  <div id="altered-board-overlay">
-    <div id="altered-overlay-content"></div>
+  <div id="taumalteredtest-board-overlay">
+    <div id="taumalteredtest-overlay-content"></div>
   </div>
 </div>
 
