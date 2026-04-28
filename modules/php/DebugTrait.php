@@ -186,6 +186,34 @@ trait DebugTrait
     // throw new \feException(print_r(Cards::getCardClass(trim($a))->jsonSerialize()));
   }
 
+  // change this function content if you need a specific setup requiring more than 1 card to test a scenario, 
+  // like adding specific cards on the board or in hand
+  function debug_setup()
+  {
+    //#210538 - setup for 2 fablab in expeditions, and 1 fisherman in hand
+    $this->addCard('LY_Rare_KadigiranMageDancer', 'stormLeft');
+    $this->addCard('LY_Rare_KadigiranMageDancer', 'hand');
+    $this->addCard('LY_Rare_Daedalus', 'hand');
+
+    //#210538 - setup for 2 fablab in mana, and 1 fisherman in reserve to ensure normal activation is not touched
+    // $this->addCard('BR_Rare_FabLabUnit', 'mana');
+    // $this->addCard('BR_Rare_FabLabUnit', 'mana');
+    // $this->addCard('BR_Rare_RekaFisherman', 'reserve');
+
+    //#210538 - setup for 3 Tag in mana, 1 feast of thoughts in reserve, and 1 training in hand 
+    // allow testing the feast of thoughts from reserve with or without counters
+    // $this->addCard('YZ_Common_Tag', 'mana');
+    // $this->addCard('YZ_Common_Tag', 'mana');
+    // $this->addCard('YZ_Common_Tag', 'mana');
+    // $this->addCard('YZ_Common_FeastofThoughts', 'reserve');
+    // $this->addCard('YZ_Common_MagicalTraining', 'hand');
+  }
+
+  function debug_untapAll()
+  {
+    Cards::untapAll();
+  }
+
   function tiebreak()
   {
     Globals::setTieBreakerMode(true);
