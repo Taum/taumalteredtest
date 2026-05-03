@@ -1961,7 +1961,6 @@ class SpecialEffect extends \ALT\Models\Action
                     'cardId' => $revealedCard->getId(),
                     'free' => true,
                     'stealOwnership' => true,
-                    'effectHand' => true,
                   ],
                   ['sourceId' => $card->getId()]
                 ),
@@ -1994,7 +1993,6 @@ class SpecialEffect extends \ALT\Models\Action
                   'cardId' => $revealedCard->getId(),
                   'free' => true,
                   'stealOwnership' => true,
-                  'effectHand' => true,
                 ],
                 ['sourceId' => $card->getId()]
               ),
