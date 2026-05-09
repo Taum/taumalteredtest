@@ -1010,7 +1010,7 @@ define([
 
       const renderStep1SourceSelection = () => {
         let themeUrl = typeof g_gamethemeurl !== 'undefined' ? g_gamethemeurl : '';
-        $('nylaltered-overlay-content').innerHTML = `
+        $('altered-overlay-content').innerHTML = `
           <h2>${_('Choose your deck')}</h2>
           <div id='deck-wizard' class='deck-wizard-step-1'>
             <div id='deck-source-selection'>
@@ -1055,7 +1055,7 @@ define([
             showingAllFactions || getFactionGroup(deck.faction) == this._deckWizardState.selectedFaction
         );
 
-        $('nylaltered-overlay-content').innerHTML = `
+        $('altered-overlay-content').innerHTML = `
           <h2>${_('Choose your deck')}</h2>
           <div id='deck-wizard' class='deck-wizard-step-2'>
             <div id='deck-selected-faction-title'></div>
