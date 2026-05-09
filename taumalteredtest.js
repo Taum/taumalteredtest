@@ -28,6 +28,7 @@ define([
   g_gamethemeurl + 'modules/js/Players.js',
   g_gamethemeurl + 'modules/js/Cards.js',
   g_gamethemeurl + 'modules/js/Meeples.js',
+  g_gamethemeurl + 'modules/js/StarterDecks.js',
 ], function (dojo, declare) {
   function openFullscreen() {
     var docElm = document.documentElement;
@@ -54,7 +55,7 @@ define([
     }
   }
 
-  return declare('bgagame.taumalteredtest', [customgame.game, altered.players, altered.cards, altered.meeples], {
+  return declare('bgagame.taumalteredtest', [customgame.game, altered.players, altered.cards, altered.meeples, altered.starterDecks], {
     constructor: function () {
       this._inactiveStates = ['selectPrecoDeck', 'firstDayManaSelection', 'newDayManaSelection', 'gameEnd'];
       this._notifications = [
@@ -843,109 +844,45 @@ define([
         return;
       }
       if (deckNum == 'random') return;
-
-      const FACTION_NAMES = {
-        BR_Gretel: _('Bravos - Gretel & Rust'),
-        LY_YeongGi: _('Lyra - Yeong-Gi & Ember'),
-        YZ_Sam: _('Yzmir - Sam & Spook'),
-        MU2: _('Muna - Turuun & Benih'),
-        OD2: _('Ordis - Matz & Hive'),
-        AX: _('Axiom - Sierra & Oddball'),
-        BR: _('Bravos - Kojo & Booda'),
-        LY: _('Lyra - Nevenka & Blotch'),
-        MU: _('Muna - Teija & Nauraa'),
-        OD: _('Ordis - Sigismar & Wingspan'),
-        YZ: _('Yzmir - Akesha & Taru'),
-      };
-
-      const FACTION_DESC = {
-        AX:
-          _('Sierra "the renowned engineer"') +
-          '<br/>' +
-          _('Construct powerful machines and let their strength carry you to victory!'),
-        BR:
-          _('Kojo "the rising star"') +
-          '<br/>' +
-          _('Summon your firecat Companion to seize the advantage without delay, for only the brave make history!'),
-        LY:
-          _('Nevenka "the unpredictable"') +
-          '<br/>' +
-          _("What's better than invoking fate to spice up a game? Are you ready to embrace the whims of destiny?"),
-        MU:
-          _('Teija "the druidess"') +
-          '<br/>' +
-          _('Anchor and boost your allies over the long haul and reap the rewards of your good deeds.'),
-        OD:
-          _('Sigismar "the commander"') +
-          '<br/>' +
-          _('Take the reins of the Ordis Legion and secure victory through sheer numbers!'),
-        YZ:
-          _('Akesha "the astute"') +
-          '<br/>' +
-          _('Let your opponent take the initiative to better thwart their plans, slowly but surely.'),
-        MU2: 
-          _('Turuun "the gifter"') + 
-          '<br/>' + 
-          _('Sharing makes us stronger. Helping the other doesn\'t mean giving without any return !'),
-        OD2: 
-          _('Matz "the builder"') + 
-          '<br/>' + 
-          _('Every project needs solid foundations. The better the foundation, the stronger and bigger the building.'),
-        LY_YeongGi: 
-          _('Yeong-Gi "the magician"') + 
-          '<br/>' + 
-          _('Who said gambling was all about luck? I can use the cards to my advantage, and make the most of every situation.'),
-        YZ_Sam: 
-          _('Sam "the phantom"') + 
-          '<br/>' + 
-          _('The shadows are my ally. I can blend in them, use them to strike at the perfect moment.'),
-      };
+      
+      const ALL_FACTIONS = [
+        { key: 'AX', banner: 'AXIOM', display: _('Axiom') },
+        { key: 'BR', banner: 'BRAVOS', display: _('Bravos') },
+        { key: 'LY', banner: 'LYRA', display: _('Lyra') },
+        { key: 'MU', banner: 'MUNA', display: _('Muna') },
+        { key: 'OD', banner: 'ORDIS', display: _('Ordis') },
+        { key: 'YZ', banner: 'YZMIR', display: _('Yzmir') },
+      ];
+      const starterDecks = this.getStarterDecks();
 
       let decks = args._private.decks || [];
       let previousDeck = decks.find((deck) => '' + deck.deckNum == '' + deckNum) || null;
-      const factionGroupMap = {
-        BR_Gretel: 'BR',
-        LY_YeongGi: 'LY',
-        YZ_Sam: 'YZ',
-        MU2: 'MU',
-        OD2: 'OD',
-        OR: 'OD',
-      };
-      const getFactionGroup = (faction) => factionGroupMap[faction] || faction;
-      const demoFactionKeys = ['BR_Gretel', 'LY_YeongGi', 'YZ_Sam', 'MU2', 'OD2'];
-      const isDemoDeck = (deck) => demoFactionKeys.includes(deck.faction);
-      let factions = [...new Set(decks.map((deck) => getFactionGroup(deck.faction)))];
-      let defaultFaction = previousDeck ? getFactionGroup(previousDeck.faction) : null;
-      const bannerFactionMap = {
-        AX: 'AXIOM',
-        BR: 'BRAVOS',
-        LY: 'LYRA',
-        MU: 'MUNA',
-        OD: 'ORDIS',
-        YZ: 'YZMIR',
-      };
-      const factionDisplayNames = {
-        AX: _('Axiom'),
-        BR: _('Bravos'),
-        LY: _('Lyra'),
-        MU: _('Muna'),
-        OD: _('Ordis'),
-        YZ: _('Yzmir'),
-      };
+      // const factionGroupMap = {
+      //   BR_Gretel: 'BR',
+      //   LY_YeongGi: 'LY',
+      //   YZ_Sam: 'YZ',
+      //   MU2: 'MU',
+      //   OD2: 'OD',
+      //   OR: 'OD',
+      // };
+      // const demoFactionKeys = ['BR_Gretel', 'LY_YeongGi', 'YZ_Sam', 'MU2', 'OD2'];
+      // const isDemoDeck = (deck) => demoFactionKeys.includes(deck.faction);
+      // let factions = [...new Set(decks.map((deck) => getFactionGroup(deck.faction)))];
+      let defaultFaction = previousDeck ? previousDeck.faction : null;
+
       const bannerImagePath = (faction, isSelected) => {
-        let canonicalFaction = bannerFactionMap[getFactionGroup(faction)] || 'AXIOM';
+        let banner = faction.banner || 'AXIOM';
         let themeUrl = typeof g_gamethemeurl !== 'undefined' ? g_gamethemeurl : '';
-        return `${themeUrl}img/Factions/${canonicalFaction}-faction-banner${isSelected ? '-selected' : ''}.png`;
+        return `${themeUrl}img/Factions/${banner}-faction-banner${isSelected ? '-selected' : ''}.png`;
       };
       const preloadFactionBannerImages = () => {
         if (!this._preloadedFactionBanners) {
           this._preloadedFactionBanners = {};
         }
-        const canonicalFactions = ['AXIOM', 'BRAVOS', 'LYRA', 'MUNA', 'ORDIS', 'YZMIR'];
         let themeUrl = typeof g_gamethemeurl !== 'undefined' ? g_gamethemeurl : '';
-        canonicalFactions.forEach((canonicalFaction) => {
+        ALL_FACTIONS.forEach((faction) => {
           [false, true].forEach((isSelected) => {
-            const url = `${themeUrl}img/Factions/${canonicalFaction}-faction-banner${isSelected ? '-selected' : ''}.png`;
+            const url = `${themeUrl}img/Factions/${faction.banner}-faction-banner${isSelected ? '-selected' : ''}.png`;
             if (this._preloadedFactionBanners[url]) return;
             const img = new Image();
             img.src = url;
@@ -961,8 +898,7 @@ define([
         source: 'preconfigured',
         selectedFaction: previousWizardState.selectedFaction || defaultFaction,
         deckSourceMode: previousWizardState.deckSourceMode || 'starters',
-        selectedDeckNum:
-          previousWizardState.selectedDeckNum !== undefined
+        selectedDeckNum: previousWizardState.selectedDeckNum !== undefined
             ? previousWizardState.selectedDeckNum
             : previousDeck
               ? previousDeck.deckNum
@@ -1047,12 +983,11 @@ define([
           this._deckWizardState.selectedFaction === null ||
           this._deckWizardState.selectedFaction === undefined
         ) {
-          this._deckWizardState.selectedFaction = factions[0];
+          this._deckWizardState.selectedFaction = ALL_FACTIONS[0].key;
         }
-        const showingAllFactions = this._deckWizardState.selectedFaction == 'ALL';
         let filteredDecks = decks.filter(
           (deck) =>
-            showingAllFactions || getFactionGroup(deck.faction) == this._deckWizardState.selectedFaction
+            getFactionGroup(deck.faction) == this._deckWizardState.selectedFaction
         );
 
         $('altered-overlay-content').innerHTML = `
@@ -1129,7 +1064,7 @@ define([
         }
 
         filteredDecks.forEach((deck) => {
-          let deckLabel = FACTION_NAMES[deck.faction] || FACTION_NAMES[getFactionGroup(deck.faction)] || selectedFactionName;
+          let deckLabel = ALL_FACTIONS[deck.faction].display || selectedFactionName;
           if (deck.hero && deck.hero.properties && deck.hero.properties.name) {
             deckLabel = deck.hero.properties.name;
           }
@@ -1167,8 +1102,8 @@ define([
               'beforeend',
               `<div class='deck-details' data-faction='${detailFaction}' data-hero='${heroKey}' data-thumbnail='${heroThumbnail}'>
               <div class='faction-banner' data-faction='${detailFaction}'></div>
-              <h3>${FACTION_NAMES[deck.faction]}</h3>
-              <p>${FACTION_DESC[deck.faction] || ''}</p>
+              <h3>${ALL_FACTIONS[deck.faction].display}</h3>
+              <p>${'placeholder description'}</p>
             </div>`
             );
           }
