@@ -31,6 +31,7 @@ concurrency:
 
 jobs:
   sftp-sync:
+    environment: preprod
     runs-on: ubuntu-latest
     if: ${{ github.ref_name == vars.SFTP_SYNC_BRANCH }}
 
