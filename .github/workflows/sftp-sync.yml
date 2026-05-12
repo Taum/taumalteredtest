@@ -48,7 +48,7 @@ jobs:
           username: ${{ vars.SFTP_USERNAME }}
           server: ${{ vars.SFTP_HOST || '1.studio.boardgamearena.com' }}
           port: ${{ vars.SFTP_PORT || '2022' }}
-          password: ${{ secrets.SFTP_PASSWORD }}
+          ssh_private_key: ${{ secrets.SFTP_PRIVATE_KEY }}
           local_path: ${{ vars.SFTP_LOCAL_PATH || './*' }}
           remote_path: ${{ vars.SFTP_REMOTE_PATH }}
           sftp_only: ${{ vars.SFTP_ONLY == 'false' && 'false' || 'true' }}
