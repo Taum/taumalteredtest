@@ -8,7 +8,7 @@
 #   password    -> secret   SFTP_PASSWORD
 #
 # Optional repository variables:
-#   SFTP_SYNC_BRANCH     If set, only this branch runs the job (e.g. preprod).
+#   SFTP_SYNC_BRANCH     Branch name for push-triggered runs (e.g. preprod). Manual runs always use branch preprod for checkout.
 #   SFTP_LOCAL_PATH      Local glob passed to the action (default: ./*)
 #   SFTP_RSYNC_ARGS      Extra rsync flags (default excludes .git, node_modules, .github)
 #   SFTP_ONLY            Set to "true" to force SFTP-only mode (recommended)
@@ -22,7 +22,7 @@ name: SFTP sync
 on:
   push:
     branches:
-      - "**"
+      - "preprod"
   workflow_dispatch:
 
 concurrency:
@@ -33,11 +33,14 @@ jobs:
   sftp-sync:
     environment: preprod
     runs-on: ubuntu-latest
-    if: ${{ github.ref_name == vars.SFTP_SYNC_BRANCH }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.ref_name == vars.SFTP_SYNC_BRANCH }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Manual runs always sync the latest preprod tree, even if you started the run from another branch in the UI.
+          ref: ${{ github.event_name == 'workflow_dispatch' && 'preprod' || github.sha }}
 
       - name: Upload via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
