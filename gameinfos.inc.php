@@ -27,7 +27,7 @@ $gameinfos = [
   'publisher' => 'Equinox',
 
   // Url of game publisher website
-  'publisher_website' => 'https://www.altered.gg',
+  'publisher_website' => 'https://alteredcore.org',
 
   // Board Game Geek ID of the publisher
   'publisher_bgg_id' => 1234,
