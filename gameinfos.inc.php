@@ -12,7 +12,7 @@
 
 $gameinfos = [
   // Name of the game in English (will serve as the basis for translation)
-  'game_name' => 'Altered',
+  'game_name' => 'Altered Preprod',
 
   // Game designer (or game designers, separated by commas)
   'designer' => 'Equinox team',
