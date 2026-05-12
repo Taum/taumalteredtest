@@ -51,9 +51,9 @@ jobs:
     environment: |
       ${{
         github.event_name == 'workflow_dispatch' && github.event.inputs.environment ||
-         (github.ref_name == 'master' || github.ref_name == 'main') && 'production' ||
-          github.ref_name == 'preprod' && 'preprod' ||
-          'preprod')
+        (github.ref_name == 'master' || github.ref_name == 'main') && 'production' ||
+        github.ref_name == 'preprod' && 'preprod' ||
+        'preprod'
       }}
 
     steps:
