@@ -43,7 +43,7 @@ jobs:
           ref: ${{ github.event_name == 'workflow_dispatch' && 'preprod' || github.sha }}
 
       - name: Upload via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
         with:
           username: ${{ vars.SFTP_USERNAME }}
           server: ${{ vars.SFTP_HOST || '1.studio.boardgamearena.com' }}
