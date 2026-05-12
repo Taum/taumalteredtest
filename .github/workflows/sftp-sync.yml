@@ -1,0 +1,52 @@
+# Sync the repository to an SFTP server on push.
+#
+# Mirrors the usual VS Code SFTP extension (.vscode/sftp.json) fields:
+#   host        -> variable SFTP_HOST
+#   port        -> variable SFTP_PORT (default 22)
+#   username    -> variable SFTP_USERNAME
+#   remotePath  -> variable SFTP_REMOTE_PATH
+#   password    -> secret   SFTP_PASSWORD
+#
+# Optional repository variables:
+#   SFTP_SYNC_BRANCH     If set, only this branch runs the job (e.g. preprod).
+#   SFTP_LOCAL_PATH      Local glob passed to the action (default: ./*)
+#   SFTP_RSYNC_ARGS      Extra rsync flags (default excludes .git, node_modules, .github)
+#   SFTP_ONLY            Set to "true" to force SFTP-only mode (recommended)
+#   SFTP_DELETE_REMOTE   Set to "true" to delete remote files before upload (dangerous)
+#
+# To use GitHub Environments: add `environment: your-env-name` on the job below, then define
+# the same variable/secret names on that environment instead of at repository scope.
+
+name: SFTP sync
+
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+
+concurrency:
+  group: sftp-sync-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sftp-sync:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref_name == vars.SFTP_SYNC_BRANCH }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: ${{ vars.SFTP_USERNAME }}
+          server: ${{ vars.SFTP_HOST || '1.studio.boardgamearena.com' }}
+          port: ${{ vars.SFTP_PORT || '2022' }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: ${{ vars.SFTP_LOCAL_PATH || './*' }}
+          remote_path: ${{ vars.SFTP_REMOTE_PATH }}
+          sftp_only: ${{ vars.SFTP_ONLY == 'false' && 'false' || 'true' }}
+          delete_remote_files: ${{ vars.SFTP_DELETE_REMOTE == 'true' && 'true' || 'false' }}
+          rsyncArgs: ${{ vars.SFTP_RSYNC_ARGS || '--exclude=.git --exclude=node_modules --exclude=.github --exclude=misc --exclude=docs' }}
