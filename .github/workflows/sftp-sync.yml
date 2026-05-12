@@ -13,6 +13,7 @@
 #   SFTP_RSYNC_ARGS      Extra rsync flags (default excludes .git, node_modules, .github)
 #   SFTP_ONLY            Set to "true" to force SFTP-only mode (recommended)
 #   SFTP_DELETE_REMOTE   Set to "true" to delete remote files before upload (dangerous)
+#   SFTP_SKIP_IMAGES     Push: omit img/ by default; set to "false" to upload img/. Manual: use the Run workflow checkbox only.
 #
 # To use GitHub Environments: add `environment: your-env-name` on the job below, then define
 # the same variable/secret names on that environment instead of at repository scope.
@@ -24,6 +25,11 @@ on:
     branches:
       - "preprod"
   workflow_dispatch:
+    inputs:
+      skip_images:
+        description: "Append --exclude=img (omit img/ from upload)"
+        type: boolean
+        default: true
 
 concurrency:
   group: sftp-sync-${{ github.ref }}
@@ -51,6 +57,6 @@ jobs:
           ssh_private_key: ${{ secrets.SFTP_PRIVATE_KEY }}
           local_path: ${{ vars.SFTP_LOCAL_PATH || './*' }}
           remote_path: ${{ vars.SFTP_REMOTE_PATH }}
-          sftp_only: ${{ vars.SFTP_ONLY == 'false' && 'false' || 'true' }}
+          sftp_only: 'true'
           delete_remote_files: ${{ vars.SFTP_DELETE_REMOTE == 'true' && 'true' || 'false' }}
-          rsyncArgs: ${{ vars.SFTP_RSYNC_ARGS || '--exclude=.git --exclude=node_modules --exclude=.github --exclude=misc --exclude=docs' }}
+          rsyncArgs: ${{ vars.SFTP_RSYNC_ARGS || '--exclude=.git --exclude=node_modules --exclude=.github --exclude=misc --exclude=docs' }}${{ ((github.event_name == 'push' && vars.SFTP_SKIP_IMAGES != 'false') || (github.event_name == 'workflow_dispatch' && github.event.inputs.skip_images == 'true')) && ' --exclude=img' || '' }}
