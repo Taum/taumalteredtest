@@ -373,6 +373,40 @@ abstract class FlowConvertor
         'trigger' => 'EndTurn',
         'condition' => ['isMe'],
       ],
+
+      // EOLE triggers
+      797 => [
+        'description' => clienttranslate('When a {D} ability is activated on your turn —'),
+        // TODO: implement me
+      ],
+      798 => [
+        'description' => clienttranslate('When you discard a card from your hand —'),
+        // TODO: implement me
+      ],
+      801 => [
+        'description' => clienttranslate('When an Animal other than me joins your Expeditions —'),
+        // TODO: implement me
+      ],
+      804 => [
+        'description' => clienttranslate('When you put a card from your hand in Reserve —'),
+        // TODO: implement me
+      ],
+      805 => [
+        'description' => clienttranslate('When I leave an [ASCENDED_S] Expedition —'),
+        // TODO: implement me
+      ],
+      808 => [
+        'description' => clienttranslate('When my Expedition moves forward [DUE_TO_ASCENSION] —'),
+        // TODO: implement me
+      ],
+      810 => [
+        'description' => clienttranslate('When one or more of your [ASCENDED_P] Expeditions moves forward —'),
+        // TODO: implement me
+      ],
+      937 => [
+        'description' => clienttranslate('{R}'),
+        // TODO: implement me
+      ],
     ];
   }
 
@@ -1175,6 +1209,136 @@ abstract class FlowConvertor
             ],
           ),
         )
+      ],
+
+      // EOLE conditions
+      882 => [
+        'description' => clienttranslate('Do this once for each card with my name in your discard pile:'),
+        // TODO: implement me
+      ],
+      883 => [
+        'description' => clienttranslate('If my Expedition is ahead:'),
+        // TODO: implement me
+      ],
+      884 => [
+        'description' => clienttranslate('If there are six or more cards in your discard pile:'),
+        // TODO: implement me
+      ],
+      885 => [
+        'description' => clienttranslate('If a card other than me in your Expeditions or your Reserve has a {D} ability:'),
+        // TODO: implement me
+      ],
+      887 => [
+        'description' => clienttranslate('If there\'s an Animal other than me in your Expeditions or your Reserve:'),
+        // TODO: implement me
+      ],
+      888 => [
+        'description' => clienttranslate('If you control a [COMPLETED_LOW] Feat:'),
+        // TODO: implement me
+      ],
+      889 => [
+        'description' => clienttranslate('If you control a Feat:'),
+        // TODO: implement me
+      ],
+      890 => [
+        'description' => clienttranslate('If a {D} ability was activated this turn:'),
+        // TODO: implement me
+      ],
+      891 => [
+        'description' => clienttranslate('If a {T} ability was activated this turn:'),
+        // TODO: implement me
+      ],
+      892 => [
+        'description' => clienttranslate('If there\'s at most one card in your hand:'),
+        // TODO: implement me
+      ],
+      893 => [
+        'description' => clienttranslate('If no {D} abilities were activated this turn:'),
+        // TODO: implement me
+      ],
+      894 => [
+        'description' => clienttranslate('Unless an opponent controls an Animal:'),
+        // TODO: implement me
+      ],
+      895 => [
+        'description' => clienttranslate('Unless there\'s a Character other than me in each of your Expeditions:'),
+        // TODO: implement me
+      ],
+      896 => [
+        'description' => clienttranslate('Unless I\'m in {V}:'),
+        // TODO: implement me
+      ],
+      897 => [
+        'description' => clienttranslate('Unless I\'m in an [ASCENDED_S] Expedition:'),
+        // TODO: implement me
+      ],
+      898 => [
+        'description' => clienttranslate('If none of your Expeditions are [ASCENDED_S]:'),
+        // TODO: implement me
+      ],
+      899 => [
+        'description' => clienttranslate('If there are two or more cards in your hand:'),
+        // TODO: implement me
+      ],
+      901 => [
+        'description' => clienttranslate('If you control no Permanents:'),
+        // TODO: implement me
+      ],
+      902 => [
+        'description' => clienttranslate('If you control no Feats:'),
+        // TODO: implement me
+      ],
+      903 => [
+        'description' => clienttranslate('Unless you discarded a card from your hand or your Reserve this turn:'),
+        // TODO: implement me
+      ],
+      904 => [
+        'description' => clienttranslate('Unless you discarded a card from your hand this turn:'),
+        // TODO: implement me
+      ],
+      905 => [
+        'description' => clienttranslate('If there are at most five cards in your discard pile:'),
+        // TODO: implement me
+      ],
+      906 => [
+        'description' => clienttranslate('If there are one or more cards in your hand:'),
+        // TODO: implement me
+      ],
+      907 => [
+        'description' => clienttranslate('You may discard a card from your hand or sacrifice a Character. If you do:'),
+        // TODO: implement me
+      ],
+      908 => [
+        'description' => clienttranslate('You may discard a card from your hand. If you do:'),
+        // TODO: implement me
+      ],
+      910 => [
+        'description' => clienttranslate('You may spend 1 boost from a Character you control. If you do:'),
+        // TODO: implement me
+      ],
+      911 => [
+        'description' => clienttranslate('You may target a Character other than me with {V} less than or equal to mine. If you do:'),
+        // TODO: implement me
+      ],
+      912 => [
+        'description' => clienttranslate('You may target a Character other than me with {V} less than or equal to mine. If you do:'),
+        // TODO: implement me
+      ],
+      913 => [
+        'description' => clienttranslate('You may target a Character other than me with {V} less than or equal to mine. If you do:'),
+        // TODO: implement me
+      ],
+      941 => [
+        'description' => clienttranslate('If there\'s a card with no {D} ability in your Reserve:'),
+        // TODO: implement me
+      ],
+      942 => [
+        'description' => clienttranslate('Roll a die. On a 1-3:'),
+        // TODO: implement me
+      ],
+      943 => [
+        'description' => clienttranslate('Unless you control a [BOOSTED] Character other than me:'),
+        // TODO: implement me
       ],
 
     ];
@@ -5185,7 +5349,365 @@ abstract class FlowConvertor
       103 => [
         'description' => clienttranslate('You may discard any number of cards from your Reserve to draw that many cards.'),
         'output' => FT::ACTION(DISCARD_DO, ['effect' => FT::ACTION(DRAW, ['players' => ME, 'n' => 'X'])])
-      ]
+      ],
+
+      // EOLE outputs
+      796 => [
+        'description' => clienttranslate('[SABOTAGE] any number of Characters with total {V} less than or equal to my {V} stat.'),
+        // TODO: implement me
+      ],
+      799 => [
+        'description' => clienttranslate('I am [GIGANTIC].  When you discard a card from your hand or your Reserve — I gain 1 boost.'),
+        // TODO: implement me
+      ],
+      811 => [
+        'description' => clienttranslate('[RESUPPLY]. If you put a Character in Reserve this way, it gains 1 boost.'),
+        // TODO: implement me
+      ],
+      812 => [
+        'description' => clienttranslate('Reveal the top card of your deck. If it\'s a Character, draw it; if not, [RESUPPLY_LOW] it.'),
+        // TODO: implement me
+      ],
+      813 => [
+        'description' => clienttranslate('[SABOTAGE_LOW], otherwise [SABOTAGE_LOW] a card with Reserve Cost {2} or less.'),
+        // TODO: implement me
+      ],
+      814 => [
+        'description' => clienttranslate('[SABOTAGE] a Character with {V} less than or equal to mine.'),
+        // TODO: implement me
+      ],
+      815 => [
+        'description' => clienttranslate('[SABOTAGE] a Character with {V} less than or equal to mine.'),
+        // TODO: implement me
+      ],
+      816 => [
+        'description' => clienttranslate('[SABOTAGE]. If you discarded a card this way, create an [ORDIS_RECRUIT] Soldier token in target Expedition controlled by an opponent.'),
+        // TODO: implement me
+      ],
+      817 => [
+        'description' => clienttranslate('[SABOTAGE]. If you discarded a card this way, create a [WOOLLYBACK] Animal token in target Expedition controlled by an opponent.'),
+        // TODO: implement me
+      ],
+      818 => [
+        'description' => clienttranslate('I am [TOUGH_1].  When any player passes — You may play a card.'),
+        // TODO: implement me
+      ],
+      819 => [
+        'description' => clienttranslate('Create a [MANA_MOTH] Illusion token in target Expedition, otherwise I gain 1 boost.'),
+        // TODO: implement me
+      ],
+      820 => [
+        'description' => clienttranslate('Create a [WOOLLYBACK] Animal token in my Expedition.'),
+        // TODO: implement me
+      ],
+      821 => [
+        'description' => clienttranslate('Create a [WOOLLYBACK] Animal token in target Expedition, it gains [ANCHORED].'),
+        // TODO: implement me
+      ],
+      822 => [
+        'description' => clienttranslate('Create a [WOOLLYBACK] Animal token in the Expedition facing me.'),
+        // TODO: implement me
+      ],
+      823 => [
+        'description' => clienttranslate('Create an [ORDIS_RECRUIT] Soldier token in each of your [ASCENDED_P] Expeditions.'),
+        // TODO: implement me
+      ],
+      824 => [
+        'description' => clienttranslate('Create an [ORDIS_RECRUIT] Soldier token in my Expedition.'),
+        // TODO: implement me
+      ],
+      825 => [
+        'description' => clienttranslate('Create an [ORDIS_RECRUIT] Soldier token in target Expedition I\'m not in.'),
+        // TODO: implement me
+      ],
+      826 => [
+        'description' => clienttranslate('Discard a card from your hand.'),
+        // TODO: implement me
+      ],
+      827 => [
+        'description' => clienttranslate('Discard it.'),
+        // TODO: implement me
+      ],
+      828 => [
+        'description' => clienttranslate('Discard two cards from your hand.'),
+        // TODO: implement me
+      ],
+      830 => [
+        'description' => clienttranslate('Draw one card per [COMPLETED_LOW] Feat you control.'),
+        // TODO: implement me
+      ],
+      831 => [
+        'description' => clienttranslate('Draw a card, otherwise create an [AEROLITH] token in your Landmarks.'),
+        // TODO: implement me
+      ],
+      832 => [
+        'description' => clienttranslate('Draw a card, then discard a card from your hand.'),
+        // TODO: implement me
+      ],
+      833 => [
+        'description' => clienttranslate('Draw three cards, then discard a card from your hand.'),
+        // TODO: implement me
+      ],
+      835 => [
+        'description' => clienttranslate('Draw two cards, then discard a card from your hand.'),
+        // TODO: implement me
+      ],
+      836 => [
+        'description' => clienttranslate('Draw two cards.'),
+        // TODO: implement me
+      ],
+      837 => [
+        'description' => clienttranslate('Each of your Expeditions [ASCENDS].'),
+        // TODO: implement me
+      ],
+      838 => [
+        'description' => clienttranslate('Each player discards their Reserve, then [RESUPPLIES].'),
+        // TODO: implement me
+      ],
+      839 => [
+        'description' => clienttranslate('Exchange its boosts with target Character in play or in Reserve.'),
+        // TODO: implement me
+      ],
+      840 => [
+        'description' => clienttranslate('You may have me activate my {D} ability.'),
+        // TODO: implement me
+      ],
+      841 => [
+        'description' => clienttranslate('Each of your Expeditions [ASCENDS], otherwise my Expedition [ASCENDS].'),
+        // TODO: implement me
+      ],
+      843 => [
+        'description' => clienttranslate('I gain 1 boost per [ASCENDED_S] Expedition you control.'),
+        // TODO: implement me
+      ],
+      844 => [
+        'description' => clienttranslate('I gain 1 boost per Animal other than me in your Expeditions.'),
+        // TODO: implement me
+      ],
+      845 => [
+        'description' => clienttranslate('I gain 1 boost per Feat in your Landmarks.'),
+        // TODO: implement me
+      ],
+      846 => [
+        'description' => clienttranslate('I gain 1 boost, otherwise discard the top card of your deck.'),
+        // TODO: implement me
+      ],
+      847 => [
+        'description' => clienttranslate('I gain 1 boost, otherwise discard the top two cards of your deck.'),
+        // TODO: implement me
+      ],
+      848 => [
+        'description' => clienttranslate('I gain 1 boost.'),
+        // TODO: implement me
+      ],
+      849 => [
+        'description' => clienttranslate('It activates one of its {j} abilities.'),
+        // TODO: implement me
+      ],
+      850 => [
+        'description' => clienttranslate('It gains [ANCHORED].'),
+        // TODO: implement me
+      ],
+      851 => [
+        'description' => clienttranslate('It gains [ASLEEP].'),
+        // TODO: implement me
+      ],
+      852 => [
+        'description' => clienttranslate('It gains [FLEETING], [ANCHORED] or [ASLEEP].'),
+        // TODO: implement me
+      ],
+      853 => [
+        'description' => clienttranslate('It gains 2 boosts.'),
+        // TODO: implement me
+      ],
+      854 => [
+        'description' => clienttranslate('It gains 1 boost and loses [FLEETING].'),
+        // TODO: implement me
+      ],
+      855 => [
+        'description' => clienttranslate('It switches Expeditions.'),
+        // TODO: implement me
+      ],
+      856 => [
+        'description' => clienttranslate('You play Permanents for {1} less, down to a minimum of {1}.'),
+        // TODO: implement me
+      ],
+      857 => [
+        'description' => clienttranslate('Pay {1} less for the next Permanent you play this Afternoon, down to a minimum of {1}.'),
+        // TODO: implement me
+      ],
+      858 => [
+        'description' => clienttranslate('Pay {1} less for the next Feat you play this turn, down to a minimum of {1}.'),
+        // TODO: implement me
+      ],
+      859 => [
+        'description' => clienttranslate('Put it into its owner\'s Mana zone (as an exhausted Mana Orb).'),
+        // TODO: implement me
+      ],
+      860 => [
+        'description' => clienttranslate('Ready a Mana Orb.'),
+        // TODO: implement me
+      ],
+      862 => [
+        'description' => clienttranslate('Roll a die. Then, you may send to Reserve target Character with Base Cost {X} or less, where X is the result.'),
+        // TODO: implement me
+      ],
+      863 => [
+        'description' => clienttranslate('Send it to Reserve.'),
+        // TODO: implement me
+      ],
+      865 => [
+        'description' => clienttranslate('The next Character you play this turn gains [ANCHORED].'),
+        // TODO: implement me
+      ],
+      866 => [
+        'description' => clienttranslate('The next Character you play this turn gains 1 boost and you may have it gain [ASLEEP].'),
+        // TODO: implement me
+      ],
+      867 => [
+        'description' => clienttranslate('We both gain 1 boost.'),
+        // TODO: implement me
+      ],
+      868 => [
+        'description' => clienttranslate('You may discard a card from your hand to discard target card in play with equal or lower Hand Cost.'),
+        // TODO: implement me
+      ],
+      869 => [
+        'description' => clienttranslate('You may discard target Character with Base Cost {1} or less.'),
+        // TODO: implement me
+      ],
+      870 => [
+        'description' => clienttranslate('You may discard target Character with Base Cost {2} or less. If you do, create an [ORDIS_RECRUIT] Soldier token in its Expedition.'),
+        // TODO: implement me
+      ],
+      871 => [
+        'description' => clienttranslate('You may discard target Character with Base Cost {2} or less. If you do, create a [WOOLLYBACK] Animal token in its Expedition.'),
+        // TODO: implement me
+      ],
+      872 => [
+        'description' => clienttranslate('You may discard target non-Companion token.'),
+        // TODO: implement me
+      ],
+      873 => [
+        'description' => clienttranslate('You may return target Character facing me with Base Cost {2} or less to its owner\'s hand.'),
+        // TODO: implement me
+      ],
+      874 => [
+        'description' => clienttranslate('You may return target Character facing me with Base Cost {3} or less to its owner\'s hand.'),
+        // TODO: implement me
+      ],
+      875 => [
+        'description' => clienttranslate('You may send to Reserve target Character with Base Cost {1} or less.'),
+        // TODO: implement me
+      ],
+      876 => [
+        'description' => clienttranslate('You may send to Reserve target Character with Base Cost {2} or less.'),
+        // TODO: implement me
+      ],
+      877 => [
+        'description' => clienttranslate('You may target a Character in play or in Reserve with a {D} ability, it gains 2 boosts.'),
+        // TODO: implement me
+      ],
+      878 => [
+        'description' => clienttranslate('You may target a Character in Reserve, it gains 2 boosts.'),
+        // TODO: implement me
+      ],
+      880 => [
+        'description' => clienttranslate('You may target a Character with Base Cost {3} or less other than me, it activates one of its {j} abilities.'),
+        // TODO: implement me
+      ],
+      881 => [
+        'description' => clienttranslate('You may target a Feat you control, it activates its {j} abilities.'),
+        // TODO: implement me
+      ],
+      916 => [
+        'description' => clienttranslate('Characters facing me are [SEASONED_CHA_P].'),
+        // TODO: implement me
+      ],
+      918 => [
+        'description' => clienttranslate('Characters you control lose their boosts.'),
+        // TODO: implement me
+      ],
+      919 => [
+        'description' => clienttranslate('Characters you control other than me can\'t gain boosts.'),
+        // TODO: implement me
+      ],
+      920 => [
+        'description' => clienttranslate('Create a [WOOLLYBACK] Animal token in each of your Expeditions.'),
+        // TODO: implement me
+      ],
+      921 => [
+        'description' => clienttranslate('Discard a card from your Reserve.'),
+        // TODO: implement me
+      ],
+      922 => [
+        'description' => clienttranslate('Discard all cards from your Reserve other than me.'),
+        // TODO: implement me
+      ],
+      923 => [
+        'description' => clienttranslate('Each Character you control gains [FLEETING].'),
+        // TODO: implement me
+      ],
+      924 => [
+        'description' => clienttranslate('Exhaust one of your Mana Orbs.'),
+        // TODO: implement me
+      ],
+      925 => [
+        'description' => clienttranslate('Put a card from your hand in Reserve.'),
+        // TODO: implement me
+      ],
+      926 => [
+        'description' => clienttranslate('Put a card from your hand on top of your deck.'),
+        // TODO: implement me
+      ],
+      927 => [
+        'description' => clienttranslate('Target Character facing me gains [ANCHORED].'),
+        // TODO: implement me
+      ],
+      928 => [
+        'description' => clienttranslate('Target Character you control other than me gains [ASLEEP].'),
+        // TODO: implement me
+      ],
+      929 => [
+        'description' => clienttranslate('Target opponent may have me switch Expeditions.'),
+        // TODO: implement me
+      ],
+      930 => [
+        'description' => clienttranslate('Target opponent may put a card from their Reserve in their Mana zone (as an exhausted Mana Orb).'),
+        // TODO: implement me
+      ],
+      931 => [
+        'description' => clienttranslate('Target opponent may ready a Mana Orb.'),
+        // TODO: implement me
+      ],
+      932 => [
+        'description' => clienttranslate('Target opponent may return a card from their Reserve to their hand.'),
+        // TODO: implement me
+      ],
+      933 => [
+        'description' => clienttranslate('The Expedition facing me [ASCENDS].'),
+        // TODO: implement me
+      ],
+      934 => [
+        'description' => clienttranslate('Characters in your other Expedition (the one I\'m not in) are [DEFENDER_CHA_P].'),
+        // TODO: implement me
+      ],
+      936 => [
+        'description' => clienttranslate('Create an [AEROLITH] token in target opponent\'s Landmarks.'),
+        // TODO: implement me
+      ],
+      938 => [
+        'description' => clienttranslate('Create a [WOOLLYBACK] Animal token in target Expedition.'),
+        // TODO: implement me
+      ],
+      939 => [
+        'description' => clienttranslate('If my Expedition would move forward [DUE_TO_ASCENSION], it moves forward one more region instead.'),
+        // TODO: implement me
+      ],
+      940 => [
+        'description' => clienttranslate('I gain 2 boosts.'),
+        // TODO: implement me
+      ],
     ];
   }
 
@@ -5697,7 +6219,7 @@ abstract class FlowConvertor
   {
     $trigger = self::getTriggers()[$effect] ?? null;
 
-    if (is_null($trigger)) {
+    if (is_null($trigger) || array_keys($trigger) == ['description']) {
       throw new \Bga\GameFramework\VisibleSystemException('Unique trigger not implemented.' . $effect);
     }
 
@@ -5734,7 +6256,7 @@ abstract class FlowConvertor
   {
     $conditions = self::getConditions()[$effect] ?? null;
 
-    if (is_null($conditions)) {
+    if (is_null($conditions) || array_keys($conditions) == ['description']) {
       throw new \Bga\GameFramework\VisibleSystemException('Unique conditions not implemented.' . $effect);
     }
     if (isset($conditions['description'])) {
@@ -5770,7 +6292,7 @@ abstract class FlowConvertor
   {
     $output = self::getOutput()[$effect] ?? null;
 
-    if (is_null($output)) {
+    if (is_null($output) || array_keys($output) == ['description']) {
       throw new \Bga\GameFramework\VisibleSystemException('Unique conditions not implemented.' . $effect);
     }
     if (isset($output['description'])) {

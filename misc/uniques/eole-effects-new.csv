@@ -1,0 +1,130 @@
+idGd,type,text
+796,OUTPUT,[SABOTAGE] any number of Characters with total {V} less than or equal to my {V} stat.
+797,TRIGGER,When a {D} ability is activated on your turn —
+798,TRIGGER,When you discard a card from your hand —
+799,OUTPUT,I am [GIGANTIC].  When you discard a card from your hand or your Reserve — I gain 1 boost.
+801,TRIGGER,When an Animal other than me joins your Expeditions —
+804,TRIGGER,When you put a card from your hand in Reserve —
+805,TRIGGER,When I leave an [ASCENDED_S] Expedition —
+808,TRIGGER,When my Expedition moves forward [DUE_TO_ASCENSION] —
+810,TRIGGER,When one or more of your [ASCENDED_P] Expeditions moves forward —
+811,OUTPUT,"[RESUPPLY]. If you put a Character in Reserve this way, it gains 1 boost."
+812,OUTPUT,"Reveal the top card of your deck. If it's a Character, draw it; if not, [RESUPPLY_LOW] it."
+813,OUTPUT,"[SABOTAGE_LOW], otherwise [SABOTAGE_LOW] a card with Reserve Cost {2} or less."
+814,OUTPUT,[SABOTAGE] a Character with {V} less than or equal to mine.
+815,OUTPUT,[SABOTAGE] a Character with {V} less than or equal to mine.
+816,OUTPUT,"[SABOTAGE]. If you discarded a card this way, create an [ORDIS_RECRUIT] Soldier token in target Expedition controlled by an opponent."
+817,OUTPUT,"[SABOTAGE]. If you discarded a card this way, create a [WOOLLYBACK] Animal token in target Expedition controlled by an opponent."
+818,OUTPUT,I am [TOUGH_1].  When any player passes — You may play a card.
+819,OUTPUT,"Create a [MANA_MOTH] Illusion token in target Expedition, otherwise I gain 1 boost."
+820,OUTPUT,Create a [WOOLLYBACK] Animal token in my Expedition.
+821,OUTPUT,"Create a [WOOLLYBACK] Animal token in target Expedition, it gains [ANCHORED]."
+822,OUTPUT,Create a [WOOLLYBACK] Animal token in the Expedition facing me.
+823,OUTPUT,Create an [ORDIS_RECRUIT] Soldier token in each of your [ASCENDED_P] Expeditions.
+824,OUTPUT,Create an [ORDIS_RECRUIT] Soldier token in my Expedition.
+825,OUTPUT,Create an [ORDIS_RECRUIT] Soldier token in target Expedition I'm not in.
+826,OUTPUT,Discard a card from your hand.
+827,OUTPUT,Discard it.
+828,OUTPUT,Discard two cards from your hand.
+830,OUTPUT,Draw one card per [COMPLETED_LOW] Feat you control.
+831,OUTPUT,"Draw a card, otherwise create an [AEROLITH] token in your Landmarks."
+832,OUTPUT,"Draw a card, then discard a card from your hand."
+833,OUTPUT,"Draw three cards, then discard a card from your hand."
+835,OUTPUT,"Draw two cards, then discard a card from your hand."
+836,OUTPUT,Draw two cards.
+837,OUTPUT,Each of your Expeditions [ASCENDS].
+838,OUTPUT,"Each player discards their Reserve, then [RESUPPLIES]."
+839,OUTPUT,Exchange its boosts with target Character in play or in Reserve.
+840,OUTPUT,You may have me activate my {D} ability.
+841,OUTPUT,"Each of your Expeditions [ASCENDS], otherwise my Expedition [ASCENDS]."
+843,OUTPUT,I gain 1 boost per [ASCENDED_S] Expedition you control.
+844,OUTPUT,I gain 1 boost per Animal other than me in your Expeditions.
+845,OUTPUT,I gain 1 boost per Feat in your Landmarks.
+846,OUTPUT,"I gain 1 boost, otherwise discard the top card of your deck."
+847,OUTPUT,"I gain 1 boost, otherwise discard the top two cards of your deck."
+848,OUTPUT,I gain 1 boost.
+849,OUTPUT,It activates one of its {j} abilities.
+850,OUTPUT,It gains [ANCHORED].
+851,OUTPUT,It gains [ASLEEP].
+852,OUTPUT,"It gains [FLEETING], [ANCHORED] or [ASLEEP]."
+853,OUTPUT,It gains 2 boosts.
+854,OUTPUT,It gains 1 boost and loses [FLEETING].
+855,OUTPUT,It switches Expeditions.
+856,OUTPUT,"You play Permanents for {1} less, down to a minimum of {1}."
+857,OUTPUT,"Pay {1} less for the next Permanent you play this Afternoon, down to a minimum of {1}."
+858,OUTPUT,"Pay {1} less for the next Feat you play this turn, down to a minimum of {1}."
+859,OUTPUT,Put it into its owner's Mana zone (as an exhausted Mana Orb).
+860,OUTPUT,Ready a Mana Orb.
+862,OUTPUT,"Roll a die. Then, you may send to Reserve target Character with Base Cost {X} or less, where X is the result."
+863,OUTPUT,Send it to Reserve.
+865,OUTPUT,The next Character you play this turn gains [ANCHORED].
+866,OUTPUT,The next Character you play this turn gains 1 boost and you may have it gain [ASLEEP].
+867,OUTPUT,We both gain 1 boost.
+868,OUTPUT,You may discard a card from your hand to discard target card in play with equal or lower Hand Cost.
+869,OUTPUT,You may discard target Character with Base Cost {1} or less.
+870,OUTPUT,"You may discard target Character with Base Cost {2} or less. If you do, create an [ORDIS_RECRUIT] Soldier token in its Expedition."
+871,OUTPUT,"You may discard target Character with Base Cost {2} or less. If you do, create a [WOOLLYBACK] Animal token in its Expedition."
+872,OUTPUT,You may discard target non-Companion token.
+873,OUTPUT,You may return target Character facing me with Base Cost {2} or less to its owner's hand.
+874,OUTPUT,You may return target Character facing me with Base Cost {3} or less to its owner's hand.
+875,OUTPUT,You may send to Reserve target Character with Base Cost {1} or less.
+876,OUTPUT,You may send to Reserve target Character with Base Cost {2} or less.
+877,OUTPUT,"You may target a Character in play or in Reserve with a {D} ability, it gains 2 boosts."
+878,OUTPUT,"You may target a Character in Reserve, it gains 2 boosts."
+880,OUTPUT,"You may target a Character with Base Cost {3} or less other than me, it activates one of its {j} abilities."
+881,OUTPUT,"You may target a Feat you control, it activates its {j} abilities."
+882,CONDITION,Do this once for each card with my name in your discard pile:
+883,CONDITION,If my Expedition is ahead:
+884,CONDITION,If there are six or more cards in your discard pile:
+885,CONDITION,If a card other than me in your Expeditions or your Reserve has a {D} ability:
+887,CONDITION,If there's an Animal other than me in your Expeditions or your Reserve:
+888,CONDITION,If you control a [COMPLETED_LOW] Feat:
+889,CONDITION,If you control a Feat:
+890,CONDITION,If a {D} ability was activated this turn:
+891,CONDITION,If a {T} ability was activated this turn:
+892,CONDITION,If there's at most one card in your hand:
+893,CONDITION,If no {D} abilities were activated this turn:
+894,CONDITION,Unless an opponent controls an Animal:
+895,CONDITION,Unless there's a Character other than me in each of your Expeditions:
+896,CONDITION,Unless I'm in {V}:
+897,CONDITION,Unless I'm in an [ASCENDED_S] Expedition:
+898,CONDITION,If none of your Expeditions are [ASCENDED_S]:
+899,CONDITION,If there are two or more cards in your hand:
+901,CONDITION,If you control no Permanents:
+902,CONDITION,If you control no Feats:
+903,CONDITION,Unless you discarded a card from your hand or your Reserve this turn:
+904,CONDITION,Unless you discarded a card from your hand this turn:
+905,CONDITION,If there are at most five cards in your discard pile:
+906,CONDITION,If there are one or more cards in your hand:
+907,CONDITION,You may discard a card from your hand or sacrifice a Character. If you do:
+908,CONDITION,You may discard a card from your hand. If you do:
+910,CONDITION,You may spend 1 boost from a Character you control. If you do:
+911,CONDITION,You may target a Character other than me with {V} less than or equal to mine. If you do:
+912,CONDITION,You may target a Character other than me with {V} less than or equal to mine. If you do:
+913,CONDITION,You may target a Character other than me with {V} less than or equal to mine. If you do:
+916,OUTPUT,Characters facing me are [SEASONED_CHA_P].
+918,OUTPUT,Characters you control lose their boosts.
+919,OUTPUT,Characters you control other than me can't gain boosts.
+920,OUTPUT,Create a [WOOLLYBACK] Animal token in each of your Expeditions.
+921,OUTPUT,Discard a card from your Reserve.
+922,OUTPUT,Discard all cards from your Reserve other than me.
+923,OUTPUT,Each Character you control gains [FLEETING].
+924,OUTPUT,Exhaust one of your Mana Orbs.
+925,OUTPUT,Put a card from your hand in Reserve.
+926,OUTPUT,Put a card from your hand on top of your deck.
+927,OUTPUT,Target Character facing me gains [ANCHORED].
+928,OUTPUT,Target Character you control other than me gains [ASLEEP].
+929,OUTPUT,Target opponent may have me switch Expeditions.
+930,OUTPUT,Target opponent may put a card from their Reserve in their Mana zone (as an exhausted Mana Orb).
+931,OUTPUT,Target opponent may ready a Mana Orb.
+932,OUTPUT,Target opponent may return a card from their Reserve to their hand.
+933,OUTPUT,The Expedition facing me [ASCENDS].
+934,OUTPUT,Characters in your other Expedition (the one I'm not in) are [DEFENDER_CHA_P].
+936,OUTPUT,Create an [AEROLITH] token in target opponent's Landmarks.
+937,TRIGGER,{R}
+938,OUTPUT,Create a [WOOLLYBACK] Animal token in target Expedition.
+939,OUTPUT,"If my Expedition would move forward [DUE_TO_ASCENSION], it moves forward one more region instead."
+940,OUTPUT,I gain 2 boosts.
+941,CONDITION,If there's a card with no {D} ability in your Reserve:
+942,CONDITION,Roll a die. On a 1-3:
+943,CONDITION,Unless you control a [BOOSTED] Character other than me:
