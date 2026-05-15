@@ -5,10 +5,21 @@ Rename the BGA-style game slug (root PHP/JS/CSS/TPL entrypoints + Core/Game.php)
 Mirrors the file renames and in-file edits from commit e4c4d654c9a506954892ed20a77be9e959c2fc57
 ("rename altered -> alteredpreprod")
 
-Usage:
+Options:
+  --target TARGET
+    New game slug (e.g. alteredpreprod). Must be a valid PHP identifier.
+  --dry-run
+    Print actions without modifying files.
+  --source SOURCE
+    Current game slug. Optional, will be auto-detected if omitted.
+    Can be used to override auto-detection for extra safety.
+
+Examples:
+  # Dry run: print actions without modifying files.
+  python misc/python-tools/rename-game-slug.py --dry-run --target taumaltered
+
+  # Auto-detect source slug from repo root.
   python misc/python-tools/rename-game-slug.py --target alteredpreprod
-  python misc/python-tools/rename-game-slug.py --source altered --target alteredpreprod
-  python misc/python-tools/rename-game-slug.py --dry-run --source foo --target bar
 """
 
 from __future__ import annotations
@@ -140,7 +151,7 @@ def _write_text(path: Path, content: str) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Rename BGA game slug (mirrors e4c4d65; ignores todo_front.txt move).",
+        description="Rename BGA game slug.",
     )
     parser.add_argument(
         "--source",
@@ -195,7 +206,7 @@ def main() -> int:
         )
         return 2
 
-    # Root entrypoints from e4c4d65 (excluding todo_front.txt relocation).
+    # Root entrypoints from e4c4d65.
     root_moves = _root_moves(source, target)
 
     core_game = repo / "modules" / "php" / "Core" / "Game.php"
