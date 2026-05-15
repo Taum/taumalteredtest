@@ -13461,6 +13461,7 @@ body.focus-board .altered-player-board .player-board-infos {
 }
 #altered-board-overlay #altered-overlay-content #deck-wizard {
   max-width: calc(0.9 * (100vw - 250px) / var(--boardScale));
+  display: grid;
 }
 .mobile_version #altered-board-overlay #altered-overlay-content #deck-wizard, .focus-board #altered-board-overlay #altered-overlay-content #deck-wizard {
   max-width: calc(90vw / var(--boardScale));

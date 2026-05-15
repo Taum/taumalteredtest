@@ -45,7 +45,7 @@ use ALT\Core\Stats;
 use ALT\Core\Engine;
 use ALT\Core\Notifications;
 
-class taumalteredtest extends Table
+class alteredbranchd extends Table
 {
   use ALT\DebugTrait;
   use ALT\States\SetupTrait;
@@ -78,7 +78,7 @@ class taumalteredtest extends Table
 
   protected function getGameName()
   {
-    return 'taumalteredtest';
+    return 'alteredbranchd';
   }
 
   public function getAllDatas(): array

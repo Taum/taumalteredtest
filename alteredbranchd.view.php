@@ -26,12 +26,12 @@
 
 require_once APP_BASE_PATH . 'view/common/game.view.php';
 
-class view_taumalteredtest_taumalteredtest extends game_view
+class view_alteredbranchd_alteredbranchd extends game_view
 {
   protected function getGameName()
   {
     // Used for translations and stuff. Please do not modify.
-    return 'taumalteredtest';
+    return 'alteredbranchd';
   }
 
   function build_page($viewArgs)

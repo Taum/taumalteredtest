@@ -55,7 +55,7 @@
      }
    }
  
-   return declare('bgagame.taumalteredtest', [customgame.game, altered.players, altered.cards, altered.meeples, altered.starterDecks], {
+   return declare('bgagame.alteredbranchd', [customgame.game, altered.players, altered.cards, altered.meeples, altered.starterDecks], {
      constructor: function () {
        this._inactiveStates = ['selectPrecoDeck', 'firstDayManaSelection', 'newDayManaSelection', 'gameEnd'];
        this._notifications = [
@@ -1094,7 +1094,6 @@
          }
  
          filteredDecks.forEach((deck) => {
-           debugger
            let deckLabel = selectedFactionName;
            if (deck.hero && deck.hero.properties && deck.hero.properties.name) {
              deckLabel = deck.hero.properties.name;
