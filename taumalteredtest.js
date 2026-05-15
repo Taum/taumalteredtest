@@ -55,7 +55,7 @@
      }
    }
  
-   return declare('bgagame.altered', [customgame.game, altered.players, altered.cards, altered.meeples, altered.starterDecks], {
+   return declare('bgagame.taumalteredtest', [customgame.game, altered.players, altered.cards, altered.meeples, altered.starterDecks], {
      constructor: function () {
        this._inactiveStates = ['selectPrecoDeck', 'firstDayManaSelection', 'newDayManaSelection', 'gameEnd'];
        this._notifications = [
