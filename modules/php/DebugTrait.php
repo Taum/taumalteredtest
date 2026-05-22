@@ -650,6 +650,12 @@ trait DebugTrait
   //   // $this->addCard('YZ_Common_MagicalTraining', 'hand');
   // }
 
+  function debug_setup()
+  {
+    $this->addCard('YZ_Rare_QorganInformant', 'hand');
+    $this->addCard('MU_Rare_ColorfulCuckoo', 'stormLeft');
+  }
+
   function debug_loadUnique(string $v, string $location = HAND)
   {
     $this->loadUnique($v, $location);
