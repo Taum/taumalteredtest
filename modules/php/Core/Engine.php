@@ -458,27 +458,20 @@ class Engine
   }
 
   /**
-   * Resolve a node pId for afterFinishing bucketing.
-   */
-  protected static function resolveAfterFinishingPId($child, $activePId)
-  {
-    $pId = $child['pId'] ?? null;
-    if (is_null($pId) || $pId === 'active') {
-      return $activePId;
-    }
-    if ($pId === 'source' && isset($child['sourceId'])) {
-      return Cards::get($child['sourceId'])->getPId();
-    }
-    return $pId;
-  }
-
-  /**
    * Pick the parallel bucket (active or opponent) for an afterFinishing child.
    */
   protected static function getAfterFinishingParallelBucket($afterFinishingNode, $child)
   {
     $activePId = $afterFinishingNode->getInfos()['activePId'] ?? Players::getActiveId();
-    $childPId = self::resolveAfterFinishingPId($child, $activePId);
+    
+    $childPId = $child['pId'] ?? null;
+    if (is_null($childPId) || $childPId === 'active') {
+      $childPId = $activePId;
+    }
+    if ($childPId === 'source' && isset($child['sourceId'])) {
+      $childPId = Cards::get($child['sourceId'])->getPId();
+    }
+    
     $targetFlag = $childPId != $activePId ? \AFTER_FINISHING_OPPONENT : \AFTER_FINISHING_ACTIVE;
 
     foreach ($afterFinishingNode->getChilds() as $parallelNode) {
