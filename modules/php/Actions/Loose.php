@@ -44,6 +44,18 @@ class Loose extends \ALT\Models\Action
     }
   }
 
+  public function isDoable($player)
+  {
+    $card = $this->getCard();
+    if ($this->getArg('type') == 'counter') {
+      if ($card->countToken(BOOST) > 0) {
+        return true;
+      }
+      return is_array($card->getExtraDatas()) && array_key_exists('counter', $card->getExtraDatas()) && $card->getExtraDatas()['counter'] > 0;
+    }
+    return true;
+  }
+
   public function isAutomatic($player = null)
   {
     return $this->getArg('upTo') == false;
@@ -117,10 +129,12 @@ class Loose extends \ALT\Models\Action
       if ($card->countToken(BOOST) > 0) {
         $resource = BOOST;
       } else {
-        // we need to remove counter
-        $this->insertAsChild(FT::ACTION(USE_COUNTER, ['cardId' => $card->getId(), 'consume' => $amount, 'upTo' => $this->getArg('upTo')], ['sourceId' => $card->getId()]));
-        $this->resolveAction();
-        return;
+        // we need to remove counter, but only if there are any, otherwise we are just no-op
+        if (is_array($card->getExtraDatas()) && array_key_exists('counter', $card->getExtraDatas()) && $card->getExtraDatas()['counter'] > 0) {
+          $this->insertAsChild(FT::ACTION(USE_COUNTER, ['cardId' => $card->getId(), 'consume' => $amount, 'upTo' => $this->getArg('upTo')], ['sourceId' => $card->getId()]));
+          $this->resolveAction();
+          return;
+        }
       }
     }
 
